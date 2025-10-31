@@ -1,0 +1,100 @@
+C51 COMPILER V9.54   LCD12864                                                              09/18/2025 23:16:25 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LCD12864
+OBJECT MODULE PLACED IN .\Objects\LCD12864.obj
+COMPILER INVOKED BY: E:\keil5\C51\BIN\C51.EXE LCD12864.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\LC
+                    -D12864.lst) TABS(2) OBJECT(.\Objects\LCD12864.obj)
+
+line level    source
+
+   1          #include "LCD12864.h"
+   2          
+   3          // 简单延时
+   4          void delay_ms(unsigned int ms) {
+   5   1          unsigned int i, j;
+   6   1          for (i = 0; i < ms; i++)
+   7   1              for (j = 0; j < 120; j++);
+   8   1      }
+   9          
+  10          // 写指令
+  11          void lcd_write_cmd(unsigned char cmd) {
+  12   1          LCD_RS = 0;    // 指令
+  13   1          LCD_RW = 0;    // 写
+  14   1          LCD_DATA = cmd;
+  15   1          LCD_E = 1;
+  16   1          _nop_(); _nop_();
+  17   1          LCD_E = 0;
+  18   1          delay_ms(2);
+  19   1      }
+  20          
+  21          // 写数据
+  22          void lcd_write_data(unsigned char dat) {
+  23   1          LCD_RS = 1;    // 数据
+  24   1          LCD_RW = 0;    // 写
+  25   1          LCD_DATA = dat;
+  26   1          LCD_E = 1;
+  27   1          _nop_(); _nop_();
+  28   1          LCD_E = 0;
+  29   1          delay_ms(2);
+  30   1      }
+  31          
+  32          // 初始化
+  33          void lcd_init(void) {
+  34   1          delay_ms(40);        // 上电延时
+  35   1          lcd_write_cmd(0x30); // 功能设定: 8位, 基本指令集
+  36   1          delay_ms(1);
+  37   1          lcd_write_cmd(0x30);
+  38   1          delay_ms(1);
+  39   1          lcd_write_cmd(0x0C); // 显示开, 光标关
+  40   1          delay_ms(1);
+  41   1          lcd_write_cmd(0x01); // 清屏
+  42   1          delay_ms(2);
+  43   1          lcd_write_cmd(0x06); // 写入后地址+1
+  44   1      }
+  45          
+  46          // 清屏
+  47          void lcd_clear(void) {
+  48   1          lcd_write_cmd(0x01);
+  49   1          delay_ms(2);
+  50   1      }
+  51          
+  52          // 设置DDRAM地址
+  53          void lcd_set_ddram(unsigned char addr) {
+  54   1          lcd_write_cmd(0x80 | addr);
+C51 COMPILER V9.54   LCD12864                                                              09/18/2025 23:16:25 PAGE 2   
+
+  55   1      }
+  56          
+  57          // 显示ASCII字符串
+  58          // addr = 0x80 第一行起始, 0x90 第二行, 0x88 第三行, 0x98 第四行
+  59          void lcd_display_string(unsigned char addr, unsigned char* str) {
+  60   1          lcd_set_ddram(addr);
+  61   1          while (*str) {
+  62   2              lcd_write_data(*str++);
+  63   2          }
+  64   1      }
+  65          
+  66          // 显示一个汉字
+  67          // high/low 为 GB2312 编码的高、低字节
+  68          void lcd_display_chinese(unsigned char addr, unsigned char high, unsigned char low) {
+  69   1          lcd_set_ddram(addr);
+  70   1          lcd_write_data(high);
+  71   1          lcd_write_data(low);
+  72   1      }
+  73          
+  74          // 开/关背光
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    188    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

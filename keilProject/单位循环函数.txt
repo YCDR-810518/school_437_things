@@ -1,0 +1,10 @@
+void DelayMs(unsigned int ms) {
+    unsigned int i;
+    for(i=0; i<ms; i++) {
+        // 调用1ms定时器延时
+        TH0 = 0xFC; TL0 = 0x66; 
+        TR0 = 1;
+        while(TF0==0);
+        TR0 = 0; TF0=0;
+    }
+}

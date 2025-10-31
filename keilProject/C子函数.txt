@@ -1,0 +1,28 @@
+子函数：（代码块）代码复用+优化程序结构
+
+void Function(unsigned , x, y)
+{
+
+}
+
+int Fun(int x)		//有 int main 需要返回值
+{
+	display(x);
+	return 6;		//执行完程序后返回6作为返回值
+}
+
+
+void main()		//接住返回值
+{
+	int a;
+	a = Fun(8);
+
+
+}
+
+返回值 函数名（形参）
+{
+	函数体
+
+}
+
