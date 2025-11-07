@@ -56,9 +56,10 @@ int main(int argc, const char * argv[]) {
         std::cout << "=====请输入要加密的数据=====" <<std::endl;
         std::cin >> statistic_plain;
         statistic_lock = PubKey_Lock(pubKey,statistic_plain);
-        std::cout << "=====加密数据完成=====" <<std::endl;
-        //接着用私钥进行第二次加密
+        std::cout << "=====公钥加密完成=====" <<std::endl;
         
+        //接着用私钥进行第二次加密
+        std
         
         //询问是否继续加密
         //询问是否更改下一次加密的私钥
