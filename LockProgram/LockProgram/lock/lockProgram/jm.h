@@ -18,3 +18,5 @@ string PubKey_Lock(string pubKey, string statistic);
 //生成公钥（字符串）
 string PubKey_generate(int length);
 
+//将二进制数据转换为十六进制
+string to_hex(const string& binary_str);
