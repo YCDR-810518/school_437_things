@@ -5,18 +5,13 @@
 //  Created by 姚晨 on 2025/11/5.
 
 //该文件为加密的头文件
-# pragma once
-#include <stdio.h>
-#include <iostream>
+#ifndef JM_H
+#define JM_H
+
 #include <string>
-#include <vector>
-using namespace std;
 
-//对数据进行公钥加密
-string PubKey_Lock(string pubKey, string statistic);
+std::string PubKey_generate(int length);
+std::string PubKey_Lock(std::string key, std::string data);
+std::string sta_unlock(std::string& pubKey, std::string& priKey, std::string& lock_sta);
 
-//生成公钥（字符串）
-string PubKey_generate(int length);
-
-//将二进制数据转换为十六进制
-string to_hex(const string& binary_str);
+#endif
