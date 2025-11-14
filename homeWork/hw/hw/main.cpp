@@ -9,6 +9,39 @@
 #include <string>
 #include <algorithm>
 using namespace std;
+int main(){
+    
+}
+int jc(){
+    
+}
+/*
+int main()
+{   //Add your code here
+   int m;int n;int s;
+    int temp=0;
+    scanf("%d",&m);
+    n=0;
+    s=0;
+   while (1) {
+       
+       temp=n+1;
+       n++;
+       s+=temp;
+      if (s>=m) {
+         break;
+      }
+   }
+
+
+
+ 
+
+
+   printf("m=%d,n=%d,s=%d", m, n, s);
+}
+ */
+/*
 int excNumBit(int a,int excBit);
 int main()
 {
@@ -27,7 +60,7 @@ int main()
 
     printf("a=%d,b=%d,c=%ld\n", a, b, c);
 }
-
+*/
 
 /*
 @spam 要包含<string>，只能在C++下运行
