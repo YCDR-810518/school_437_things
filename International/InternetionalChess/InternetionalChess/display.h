@@ -7,5 +7,8 @@
 #ifndef _DISPLAY_H_
 #define _DISPLAY_H_
 #include <iostream>
+#include <string>
+#include "search.h"
 void displayChess();
+void searchRecord(std::string color,std::string chessType,int vertical,char length,int display);
 #endif
