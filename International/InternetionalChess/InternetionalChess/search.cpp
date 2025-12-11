@@ -43,7 +43,6 @@ string searchChessBox(char x, int y){
 }
 
 string searchColor(char x, int y){
-    // 修正索引：应该是 vertical 和 length-97
     if (chessColorMap[y][x] == -1) {  // 注意行列顺序
         return "White";
     }

@@ -17,7 +17,9 @@ int main(int argc, const char * argv[]) {
             cout << "\n=== 国际象棋程序 ===" << endl;
             cout << "1. 显示当前棋盘" << endl;
             cout << "2. 移动棋子" << endl;
-            cout << "3. 退出程序" << endl;
+            cout << "3. 搜索棋盘上的棋子"<<endl;
+            //cout <<"显示历史记录（十条）"<<endl;
+            cout << "4. 退出程序" << endl;
             cout << "请选择操作: ";
             cin >> choice;
             
@@ -42,7 +44,8 @@ int main(int argc, const char * argv[]) {
                                  endlength,endvertical, -1);
                     
                     break;
-                case 3:
+                    
+                case 4:
                     cout << "谢谢使用！" << endl;
                     break;
                 default:
@@ -50,6 +53,6 @@ int main(int argc, const char * argv[]) {
                     break;
             }
             
-        } while (choice != 3);
+        } while (choice != 4);
     return 0;
 }
