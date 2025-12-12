@@ -8,7 +8,10 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <sstream>
 #include "search.h"
+#include "logic.h"
+#include <limits>
 using namespace std;
 extern vector<vector<string>> chessMap;
 
@@ -81,6 +84,40 @@ void searchRecord(string color, string chessType, int vertical, char length, int
              << chessTypeHistory[i] << "\t("
              << lengthHistory[i] << ","
              << verticalHistory[i] << ")\n";
+    }
+}
+
+//处理批量输入并进行显示
+void batch_display(){
+    char startPointx, endPointx;
+    int startPointy, endPointy;
+    int count = 0;
+
+    cout <<'\n'<< "-----------------" <<endl;
+    cout <<"请输入多行数据（格式：e 2 e 4），输入完后直接再按一次回车结束：\n";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    // 关键修复：改成先读一行，再用 stringstream 解析
+    string line;
+    while (getline(cin, line)) {
+        // 如果是空行，就退出（用户按了两次回车）
+        if (line.empty()) {
+            cout << "\n检测到空行，批量走棋结束！" << endl;
+            break;
+        }
+
+        stringstream ss(line);
+        if (ss >> startPointx >> startPointy >> endPointx >> endPointy) {
+            cout <<'\n'<< "----------------------" <<endl;
+            cout <<"第"<< ++count <<"步："<<endl;
+
+            transferPoint(&startPointy, &endPointy, &startPointx, &endPointx);
+            moveChess(startPointx, startPointy, endPointx, endPointy);
+            displayChess();
+
+            cout << "----------------------" <<endl;
+        } else {
+            cout << "这行格式不对，已忽略：" << line << endl;
+        }
     }
 }
 

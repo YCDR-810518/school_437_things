@@ -11,4 +11,5 @@
 #include "search.h"
 void displayChess();
 void searchRecord(std::string color,std::string chessType,int vertical,char length,int display);
+void batch_display();
 #endif

@@ -20,11 +20,17 @@ int chessColorMap[8][8] = {
     {1,1,1,1,1,1,1,1}
 };
 
+//这里弄反了，不好改，将就着用吧
 void transferPoint(int *x1,int *x2,char *y1, char *y2){
     *x1 = abs(*x1 - 8);
     *x2 = abs(*x2 - 8);
     *y1-='a';
     *y2-='a';
+}
+
+void transferPoint2(int *x1,char *y1){
+    *x1 = abs(*x1 - 8);
+    *y1-='a';
 }
 // 全局棋盘数组 - 使用 vector 避免数组问题
 vector<vector<string>> chessMap = {
@@ -43,13 +49,13 @@ string searchChessBox(char x, int y){
 }
 
 string searchColor(char x, int y){
-    if (chessColorMap[y][x] == -1) {  // 注意行列顺序
+    if (chessColorMap[y][x] == 1) {  // 注意行列顺序
         return "White";
     }
     if (chessColorMap[y][x] == 0) {
         return "Blank";
     }
-    if (chessColorMap[y][x] == 1) {
+    if (chessColorMap[y][x] == -1) {
         return "Black";
     } else {
         return "ChessColorError ";
