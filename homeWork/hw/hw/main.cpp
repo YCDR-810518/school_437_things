@@ -1,9 +1,15 @@
-//
-//  main.cpp
-//  hw
-//
-//  Created by 姚晨 on 2025/11/10.
-//
+#include<stdio.h>
+int main(){
+    long long N,sum_bit=0,count_bit=0;
+    scanf("%lld",&N);
+    while(N!=0){
+        sum_bit+=N%10;
+        N=N/10;
+        count_bit++;
+    }
+    printf("%lld %lld",sum_bit,count_bit);
+}
+/*
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -66,6 +72,7 @@ int main()
     }
     cout<<PIH;
 }
+*/
 /*
 #include <iostream>
 #include <vector>
@@ -296,40 +303,6 @@ int main()
 @int excBit 标志要转换的位数（从右向左）
 @return 返回已经转换的位数
 */
-
-int excNumBit(int a, int excBit) {
-    if (a == 0) return 0;
-    
-    bool isNegative = false;
-    if (a < 0) {
-        isNegative = true;
-        a = -a;
-    }
-    
-    // 计算实际位数
-    int temp = a;
-    int actualDigits = 0;
-    while (temp > 0) {
-        actualDigits++;
-        temp /= 10;
-    }
-    
-    int bitsToProcess = min(excBit, actualDigits);
-    
-    // 直接构建反转数字
-    int reverseNum = 0;
-    temp = a;
-    for (int i = 0; i < bitsToProcess; i++) {
-        reverseNum = reverseNum * 10 + (temp % 10);
-        temp /= 10;
-    }
-    
-    if (isNegative) {
-        reverseNum = -reverseNum;
-    }
-    
-    return reverseNum;
-}
 
 /*
 #include <iostream>

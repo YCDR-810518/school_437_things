@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d5e02575-df7a-4fb3-ab12-79cc148a97be" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../../InternetionalChess.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../InternetionalChess.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/project.xcworkspace/xcuserdata/yaochen.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/project.xcworkspace/xcuserdata/yaochen.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/xcuserdata/yaochen.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../InternetionalChess.xcodeproj/xcuserdata/yaochen.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/display.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/logic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic.h" beforeDir="false" afterPath="$PROJECT_DIR$/logic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/search.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.h" beforeDir="false" afterPath="$PROJECT_DIR$/search.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../homeWork/hw/hw.xcodeproj/project.xcworkspace/xcuserdata/yaochen.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../../homeWork/hw/hw.xcodeproj/project.xcworkspace/xcuserdata/yaochen.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../homeWork/hw/hw.xcodeproj/xcuserdata/yaochen.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../../../homeWork/hw/hw.xcodeproj/xcuserdata/yaochen.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../homeWork/hw/hw/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../homeWork/hw/hw/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="3" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="37Hhf5XShRkPIjf2C5ODObLQxtC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "org.rust.first.attach.projects": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.cidr.embedded.config",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="d5e02575-df7a-4fb3-ab12-79cc148a97be" name="更改" comment="" />
+      <created>1766566008924</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766566008924</updated>
+      <workItem from="1766566017227" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>

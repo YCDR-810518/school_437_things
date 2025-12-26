@@ -16,4 +16,7 @@ int logic_PointCheck(char x1, int y1, char x2, int y2);
 bool logic_PathCheck(char x1, int y1, char x2, int y2);
 */
 bool moveChess(char stalength, int stavertical, char endlength, int endvertical);
+bool regret();
+//让同一方不能走两次
+bool excPosit(std::string color);
 #endif

@@ -1,0 +1,3 @@
+/Users/yaochen/Documents/GitHub/school_437_things/International/InternetionalChess/InternetionalChess/build-macos/CMakeFiles/chess.dir
+/Users/yaochen/Documents/GitHub/school_437_things/International/InternetionalChess/InternetionalChess/build-macos/CMakeFiles/edit_cache.dir
+/Users/yaochen/Documents/GitHub/school_437_things/International/InternetionalChess/InternetionalChess/build-macos/CMakeFiles/rebuild_cache.dir

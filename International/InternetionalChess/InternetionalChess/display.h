@@ -12,4 +12,8 @@
 void displayChess();
 void searchRecord(std::string color,std::string chessType,int vertical,char length,int display);
 void batch_display();
+void batch_displayTXT();
+void wait_for_enter();
+void clearScreen();
+void waitAnyKey();
 #endif
