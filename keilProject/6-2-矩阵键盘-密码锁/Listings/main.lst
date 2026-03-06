@@ -1,0 +1,249 @@
+C51 COMPILER V9.54   MAIN                                                                  12/13/2025 21:44:01 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "LCD1602.h"
+   3          #include "delay.h"
+   4          #include "MartrixKey.h"
+   5          
+   6          void main()
+   7          {
+   8   1          unsigned char KeyNum;
+   9   1          unsigned char NumLockarr[9]; // 设置密码的缓冲区
+  10   1          unsigned char NumKeyarr[9];  // 密码输入的缓冲区
+  11   1          int i, j, k;  // 定义所有循环变量
+  12   1      
+  13   1          // 初始化1602液晶屏
+  14   1          LCD_Init();
+  15   1          LCD_ShowString(1, 1, "DigitalNumLock!");
+  16   1          LCD_ShowString(2, 1, "Loading...");
+  17   1          Delay(2000);
+  18   1      
+  19   1          LCD_Init();
+  20   1          LCD_ShowString(1, 1, "SetYourKey");
+  21   1          LCD_ShowString(2, 1, "NumShouldUnder9");
+  22   1          Delay(2000);
+  23   1      
+  24   1          while (1)
+  25   1          {
+  26   2              // 设置密码部分
+  27   2              i = 0;
+  28   2              LCD_Init();
+  29   2              LCD_ShowString(1, 10, "len[9]");
+  30   2              Delay(1000);
+  31   2      
+  32   2              // 清空密码数组
+  33   2              for (k = 0; k < 9; k++)
+  34   2              {
+  35   3                  NumLockarr[k] = 0;
+  36   3              }
+  37   2      
+  38   2              LCD_Init();
+  39   2              LCD_ShowString(1, 1, "EnterTheKey:");
+  40   2              LCD_Init();
+  41   2              LCD_ShowString(2, 1, "Press10ToDelete");
+  42   2                
+  43   2              for (i = 0; i < 9; i++)
+  44   2              {
+  45   3                  while (1)
+  46   3                  {
+  47   4                      KeyNum = MartrixKey();
+  48   4      
+  49   4                      // 判断当其按下时触发
+  50   4                      if (KeyNum)
+  51   4                      {
+  52   5                          if (KeyNum == 10)  // 删除键
+  53   5                          {
+  54   6                              if (i == 0)  // 已经是第一个字符，无法删除
+C51 COMPILER V9.54   MAIN                                                                  12/13/2025 21:44:01 PAGE 2   
+
+  55   6                              {
+  56   7                                  KeyNum = 0;
+  57   7                                  break;
+  58   7                              }
+  59   6                              else
+  60   6                              {
+  61   7                                  // 先清除当前显示
+  62   7                                  LCD_ShowString(1, i, " ");
+  63   7                                  // 清除数组中的数据
+  64   7                                  if (i > 0)
+  65   7                                  {
+  66   8                                      NumLockarr[i - 1] = 0;
+  67   8                                  }
+  68   7                                  i--;  // 回退一个位置，因为for循环会加回来
+  69   7                                  i--;  // 再减一次，抵消for循环的i++
+  70   7                                  KeyNum = 0;  // 重置KeyNum
+  71   7                                  break;
+  72   7                              }
+  73   6                          }
+  74   5      
+  75   5                          if (KeyNum < 10)  // 数字键
+  76   5                          {
+  77   6                              NumLockarr[i] = KeyNum;
+  78   6                              break;
+  79   6                          }
+  80   5                      }
+  81   4                  }
+  82   3      
+  83   3                  if (KeyNum != 10 && KeyNum < 10)
+  84   3                  {
+  85   4                      // 显示设置的密码
+  86   4                      LCD_ShowNum(1, i + 1, KeyNum, 1);
+  87   4                  }
+  88   3      
+  89   3                  // 重置KeyNum
+  90   3                  KeyNum = 0;
+  91   3      
+  92   3                  // 显示密码设置完毕并退出密码设置程序
+  93   3                  if (i == 8)
+  94   3                  {
+  95   4                      LCD_Init();
+  96   4                      LCD_ShowString(1, 1, "KeyIsSet!!");
+  97   4                      Delay(2000);
+  98   4                      break;
+  99   4                  }
+ 100   3              }
+ 101   2      
+ 102   2              // 询问是否重置密码
+ 103   2              LCD_Init();
+ 104   2              LCD_ShowString(1, 1, "ResetKey?");
+ 105   2              LCD_ShowString(2, 1, "Yes->1 No->2");
+ 106   2      
+ 107   2              while (1)
+ 108   2              {
+ 109   3                  KeyNum = MartrixKey();
+ 110   3      
+ 111   3                  // 判断当其按下时触发
+ 112   3                  if (KeyNum)
+ 113   3                  {
+ 114   4                      if (KeyNum == 1)  // 选择重置
+ 115   4                      {
+ 116   5                          LCD_Init();
+C51 COMPILER V9.54   MAIN                                                                  12/13/2025 21:44:01 PAGE 3   
+
+ 117   5                          LCD_ShowString(1, 1, "KeyIsReset");
+ 118   5                          Delay(2000);
+ 119   5                          KeyNum = 0;  // 重置KeyNum
+ 120   5                          break;  // 跳出循环，重新设置密码
+ 121   5                      }
+ 122   4                      else if (KeyNum == 2)  // 不重置，进入解锁
+ 123   4                      {
+ 124   5                          while (1)
+ 125   5                          {
+ 126   6                              int unlock = 0;  // 表示是否成功解锁
+ 127   6      
+ 128   6                              // 清空输入数组
+ 129   6                              for (j = 0; j < 9; j++)
+ 130   6                              {
+ 131   7                                  NumKeyarr[j] = 0;
+ 132   7                              }
+ 133   6      
+ 134   6                              LCD_Init();
+ 135   6                              KeyNum = 0;  // 重置KeyNum
+ 136   6      
+ 137   6                              // 显示解锁画面
+ 138   6                              LCD_ShowString(1, 1, "PleaseEnterYour");
+ 139   6                              LCD_ShowString(2, 1, "Key:");
+ 140   6      
+ 141   6                              // 输入密码
+ 142   6                              for (j = 0; j < 9; j++)
+ 143   6                              {
+ 144   7                                  while (1)
+ 145   7                                  {
+ 146   8                                      KeyNum = MartrixKey();
+ 147   8      
+ 148   8                                      if (KeyNum)
+ 149   8                                      {
+ 150   9                                          if (KeyNum < 10)
+ 151   9                                          {
+ 152  10                                              NumKeyarr[j] = KeyNum;
+ 153  10                                              KeyNum = 0;
+ 154  10                                              LCD_ShowString(2, 5 + j, "*");
+ 155  10                                              break;
+ 156  10                                          }
+ 157   9                                      }
+ 158   8                                  }
+ 159   7                              }
+ 160   6      
+ 161   6                              // 验证密码
+ 162   6                              unlock = 1;  // 先假设解锁成功
+ 163   6                              for (j = 0; j < 9; j++)
+ 164   6                              {
+ 165   7                                  if (NumKeyarr[j] != NumLockarr[j])
+ 166   7                                  {
+ 167   8                                      unlock = 0;  // 密码错误
+ 168   8                                      break;
+ 169   8                                  }
+ 170   7                              }
+ 171   6      
+ 172   6                              if (unlock == 1)
+ 173   6                              {
+ 174   7                                  LCD_Init();
+ 175   7                                  LCD_ShowString(1, 1, "I Love You!!");
+ 176   7                                  LCD_ShowString(2, 1, "My Dear ~ ");
+ 177   7                                  Delay(2000);
+ 178   7                                  break;
+C51 COMPILER V9.54   MAIN                                                                  12/13/2025 21:44:01 PAGE 4   
+
+ 179   7                              }
+ 180   6                              else
+ 181   6                              {
+ 182   7                                  LCD_Init();
+ 183   7                                  LCD_ShowString(1, 1, "WrongKey!");
+ 184   7                                  Delay(2000);
+ 185   7                              }
+ 186   6      
+ 187   6                              // 解锁失败后询问
+ 188   6                              LCD_Init();
+ 189   6                              LCD_ShowString(1, 1, "1:Retry 2:Reset");
+ 190   6      
+ 191   6                              while (1)
+ 192   6                              {
+ 193   7                                  KeyNum = MartrixKey();
+ 194   7      
+ 195   7                                  if (KeyNum)
+ 196   7                                  {
+ 197   8                                      if (KeyNum == 1)  // 重试
+ 198   8                                      {
+ 199   9                                          break;
+ 200   9                                      }
+ 201   8                                      else if (KeyNum == 2)  // 重置密码
+ 202   8                                      {
+ 203   9                                          // 跳出多层循环，回到最外层重新设置密码
+ 204   9                                          KeyNum = 0;
+ 205   9                                          goto reset_password;
+ 206   9                                      }
+ 207   8                                  }
+ 208   7                              }
+ 209   6                          }
+ 210   5                          break;
+ 211   5                      }
+ 212   4                      KeyNum = 0;  // 重置KeyNum
+ 213   4                  }
+ 214   3              }
+ 215   2      
+ 216   2          reset_password:  // 标签，用于跳转到这里重新设置密码
+ 217   2              continue;
+ 218   2          }
+ 219   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    688    ----
+   CONSTANT SIZE    =    210    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      25
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

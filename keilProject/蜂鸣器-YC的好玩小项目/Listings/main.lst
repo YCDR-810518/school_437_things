@@ -1,0 +1,86 @@
+C51 COMPILER V9.54   MAIN                                                                  02/25/2026 16:23:27 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <delay.h>
+   3          #include <intrins.h>
+   4          //为io口设定好记的名字
+   5          sbit BUZZER = P2^5;
+   6          sbit ST_BU = P3^1;
+   7          sbit UP_BU = P3^0;
+   8          sbit DOWN_BU = P3^2;
+   9          
+  10          unsigned char pwm_duty = 255;  // 0~255，值越大声音越大（占空比越高）
+  11          
+  12          //该程序测试蜂鸣器是否正常运作
+  13          void Timer0_Init(void)  // 示例：产生约1kHz PWM
+  14          {
+  15   1        TMOD = 0x01;     // T0 方式1
+  16   1        TH0 = (65536 - 1000) / 256;   // 调整这个值改变频率
+  17   1        TL0 = (65536 - 1000) % 256;
+  18   1        ET0 = 1;
+  19   1        TR0 = 1;
+  20   1        EA = 1;
+  21   1      }
+  22          void Timer0_ISR() interrupt 1
+  23          {
+  24   1        static unsigned char cnt = 0;
+  25   1        TH0 = 0xFC;     // ← 这里填重载值（保持频率不变）
+  26   1        TL0 = 0x18;
+  27   1      
+  28   1        cnt++;
+  29   1        if (cnt >= 256) cnt = 0;
+  30   1      
+  31   1        if (cnt < pwm_duty)
+  32   1          BUZZER = 0;   // 假设低电平导通蜂鸣器（响）
+  33   1        else
+  34   1          BUZZER = 1;   // 关
+  35   1      }
+  36          main(){
+  37   1        //给蜂鸣器初始化为低电平
+  38   1        BUZZER = 0;
+  39   1        while(1){
+  40   2          //独立按键启动蜂鸣器
+  41   2          if(ST_BU == 0)
+  42   2          {
+  43   3            //消除抖动
+  44   3            delay(10);
+  45   3            //启动蜂鸣器
+  46   3            BUZZER = ~BUZZER;
+  47   3          }
+  48   2          if (UP_BU == 0)
+  49   2          {
+  50   3            delay(10);
+  51   3            if (pwm_duty < 255) pwm_duty+=5;  // 增大占空比
+  52   3      
+  53   3          }
+  54   2          if (DOWN_BU == 0)
+C51 COMPILER V9.54   MAIN                                                                  02/25/2026 16:23:27 PAGE 2   
+
+  55   2          {
+  56   3            delay(10);
+  57   3            if (pwm_duty > 5) pwm_duty -= 5;  // 减小占空比
+  58   3          }
+  59   2        }
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    118    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

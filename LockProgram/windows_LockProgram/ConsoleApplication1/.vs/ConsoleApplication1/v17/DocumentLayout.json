@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A6DDC351-7A96-44B2-91C7-C6E7DC4EC395}|ConsoleApplication1.vcxproj|D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6DDC351-7A96-44B2-91C7-C6E7DC4EC395}|ConsoleApplication1.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6DDC351-7A96-44B2-91C7-C6E7DC4EC395}|ConsoleApplication1.vcxproj|D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\jm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A6DDC351-7A96-44B2-91C7-C6E7DC4EC395}|ConsoleApplication1.vcxproj|solutionrelative:jm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAAACUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-08T07:45:12.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "jm.cpp",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\jm.cpp",
+              "RelativeDocumentMoniker": "jm.cpp",
+              "ToolTip": "D:\\Documents\\GitHub\\school_437_things\\LockProgram\\windows_LockProgram\\ConsoleApplication1\\jm.cpp",
+              "RelativeToolTip": "jm.cpp",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAGkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-08T07:45:32.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

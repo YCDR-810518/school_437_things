@@ -1,0 +1,9 @@
+﻿  jm.cpp
+D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\jm.cpp(23,25): warning C4244: “初始化”: 从“_Rep”转换到“unsigned int”，可能丢失数据
+D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\jm.cpp(23,25): warning C4244:         with
+D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\jm.cpp(23,25): warning C4244:         [
+D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\jm.cpp(23,25): warning C4244:             _Rep=std::chrono::system_clock::rep
+D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\jm.cpp(23,25): warning C4244:         ]
+  main.cpp
+  正在生成代码...
+  ConsoleApplication1.vcxproj -> D:\Documents\GitHub\school_437_things\LockProgram\windows_LockProgram\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
